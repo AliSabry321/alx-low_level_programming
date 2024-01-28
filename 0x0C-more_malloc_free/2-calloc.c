@@ -12,12 +12,15 @@
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *new;
+	unsigned int *new;
+	unsigned int i;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 	new = malloc(sizeof(size) * nmemb);
 	if (new == NULL)
 		return (NULL);
+	for (i = 0; i < nmemb; i++)
+		new[i] = 0;
 	return (new);
 }
